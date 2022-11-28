@@ -36,9 +36,15 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private  fun replaceFragment(fragment: Fragment){
+        val bundle = Bundle()
+        bundle.putString("inputText", "Data fssggf")
+
+
         val  fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fragment_layout,fragment)
+        fragment.arguments = bundle
+        fragmentTransaction.addToBackStack("dfef")
         fragmentTransaction.commit()
 
     }
