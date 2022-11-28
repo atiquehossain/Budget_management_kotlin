@@ -35,7 +35,8 @@
             android:layout_height="match_parent"
             android:id="@+id/bottomNavigationView"
             app:menu="@menu/bottom_nav_menu"
-            android:layout_gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:foregroundGravity="center_vertical"
             android:background="@drawable/transparent_background"
 
             />
