@@ -1,80 +1,70 @@
 package com.example.budgetmanagement
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import androidx.fragment.app.Fragment
+import com.google.android.material.button.MaterialButton
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        /*arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-
-
-        }*/
-    }
+class HomeFragment : Fragment(),  View.OnClickListener{
 
     private var helloTv: TextView? = null
-    private var fragmentview : View? = null
+    private var fragmentView : View? = null
+    private var Mhistory : MaterialButton? = null
+    private var Mpay : MaterialButton? = null
+    private var Maddbtn : MaterialButton? = null
+    private var Mtodo : MaterialButton? = null
+    private var Maccount : MaterialButton? = null
+    private var Msend : MaterialButton? = null
+    private var MAnalysis : MaterialButton? = null
+    private var Mpdf : MaterialButton? = null
+    private var Mreset : MaterialButton? = null
+    private var greeting : String? = null
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
 
-        val inputText = arguments?.getString("inputText")
-        // Inflate the layout for this fragment
-
-       // val view: View = inflater.inflate(R.layout.fragment_home, container, false)
-       fragmentview = inflater.inflate(R.layout.fragment_home, container, false)
-        //val activity = activity as Context
-        helloTv = (fragmentview as View).findViewById<TextView>(R.id.hello);
-        (helloTv as TextView).setText(inputText)
-       // val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
-        //recyclerView.layoutManager = GridLayoutManager(activity, 2)
-       // recyclerView.adapter = DogListAdapter(activity)
-        return fragmentview
-
-       // return inflater.inflate(R.layout.fragment_home, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        fragmentView = inflater.inflate(R.layout.fragment_home, container, false)
+        initView()
+        return fragmentView
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun initView() {
+        greeting = arguments?.getString("greeting")
+        helloTv = (fragmentView as View).findViewById<TextView>(R.id.hello)
+        (helloTv as TextView).setText(greeting)
+
+
+
+        Maddbtn = (fragmentView as View).findViewById<MaterialButton>(R.id.add_btn)
+        (Maddbtn as MaterialButton).setOnClickListener(this)
+        Mpay = (fragmentView as View).findViewById<MaterialButton>(R.id.expend)
+        (Mpay as MaterialButton).setOnClickListener(this)
+        Mhistory = (fragmentView as View).findViewById<MaterialButton>(R.id.loHistory)
+        (Mhistory as MaterialButton).setOnClickListener(this)
+        Mtodo = (fragmentView as View).findViewById<MaterialButton>(R.id.Mtodo)
+        (Mtodo as MaterialButton).setOnClickListener(this)
+        Maccount = (fragmentView as View).findViewById<MaterialButton>(R.id.Maccount)
+        (Maccount as MaterialButton).setOnClickListener(this)
+        Msend = (fragmentView as View).findViewById<MaterialButton>(R.id.Msend)
+        (Msend as MaterialButton).setOnClickListener(this)
+        MAnalysis = (fragmentView as View).findViewById<MaterialButton>(R.id.MAnalysis)
+        (MAnalysis as MaterialButton).setOnClickListener(this)
+        Mpdf = (fragmentView as View).findViewById<MaterialButton>(R.id.Mpdf)
+        (Mpdf as MaterialButton).setOnClickListener(this)
+        Mreset = (fragmentView as View).findViewById<MaterialButton>(R.id.Mreset)
+        (Mreset as MaterialButton).setOnClickListener(this)
     }
+
+    override fun onClick(v: View?) {
+        val itemId = v?.id
+        if (itemId == R.id.loHistory){
+            Log.d("Atique", "onClick: ")
+        }
+    }
+
+
 }

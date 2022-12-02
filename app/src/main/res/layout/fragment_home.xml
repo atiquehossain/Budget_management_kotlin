@@ -427,6 +427,7 @@
                                     app:icon="@drawable/ic_add"
                                     app:iconTint="@color/pss_base_black_tint"
                                     app:backgroundTint="@color/md_grey_200"
+                                    android:id="@+id/add_btn"
 
                                     />
 
@@ -460,7 +461,7 @@
                                     app:icon="@drawable/ic_baseline_pay_add_24"
                                     app:iconTint="@color/pss_base_black_tint"
                                     app:backgroundTint="@color/md_grey_200"
-
+                                    android:id="@+id/expend"
                                     />
 
                                 <TextView
@@ -483,7 +484,8 @@
                                 android:orientation="vertical"
                                 android:paddingTop="0dp"
                                 android:layout_gravity="center"
-                                android:gravity="center">
+                                android:gravity="center"
+                                android:clickable="true">
 
                                 <com.google.android.material.button.MaterialButton
                                     style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
@@ -493,7 +495,7 @@
                                     app:icon="@drawable/ic_history"
                                     app:iconTint="@color/pss_base_black_tint"
                                     app:backgroundTint="@color/md_grey_200"
-
+                                    android:id="@+id/loHistory"
                                     />
 
                                 <TextView
@@ -538,7 +540,7 @@
                                     app:icon="@drawable/ic_todo"
                                     app:iconTint="@color/pss_base_black_tint"
                                     app:backgroundTint="@color/md_grey_200"
-
+                                    android:id="@+id/Mtodo"
                                     />
 
                                 <TextView
@@ -571,7 +573,7 @@
                                     app:icon="@drawable/ic_account_balance_wallet"
                                     app:iconTint="@color/pss_base_black_tint"
                                     app:backgroundTint="@color/md_grey_200"
-
+                                    android:id="@+id/Maccount"
                                     />
 
                                 <TextView
@@ -604,7 +606,7 @@
                                     app:icon="@drawable/ic_baseline_send_24"
                                     app:iconTint="@color/pss_base_black_tint"
                                     app:backgroundTint="@color/md_grey_200"
-
+                                    android:id="@+id/Msend"
                                     />
 
                                 <TextView
@@ -649,7 +651,7 @@
                                     app:icon="@drawable/ic_analysis"
                                     app:iconTint="@color/pss_base_black_tint"
                                     app:backgroundTint="@color/md_grey_200"
-
+                                    android:id="@+id/MAnalysis"
                                     />
 
                                 <TextView
@@ -682,7 +684,7 @@
                                     app:icon="@drawable/ic_baseline_picture_as_pdf_24"
                                     app:iconTint="@color/pss_base_black_tint"
                                     app:backgroundTint="@color/md_grey_200"
-
+                                    android:id="@+id/Mpdf"
                                     />
 
                                 <TextView
@@ -715,6 +717,7 @@
                                     app:icon="@drawable/ic_baseline_restart_alt_24"
                                     app:iconTint="@color/pss_base_black_tint"
                                     app:backgroundTint="@color/md_grey_200"
+                                    android:id="@+id/Mreset"
 
                                     />
 
