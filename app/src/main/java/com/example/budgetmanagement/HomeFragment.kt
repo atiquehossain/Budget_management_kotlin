@@ -62,7 +62,10 @@ class HomeFragment : Fragment(),  View.OnClickListener{
     override fun onClick(v: View?) {
         val itemId = v?.id
         if (itemId == R.id.loHistory){
-            Log.d("Atique", "onClick: ")
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.fragment_layout, HistoryFragment())
+            transaction?.addToBackStack("abc");
+            transaction?.commit()
         }
     }
 
