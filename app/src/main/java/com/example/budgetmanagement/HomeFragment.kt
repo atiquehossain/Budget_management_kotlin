@@ -64,7 +64,13 @@ class HomeFragment : Fragment(),  View.OnClickListener{
         if (itemId == R.id.loHistory){
             val transaction = activity?.supportFragmentManager?.beginTransaction()
             transaction?.replace(R.id.fragment_layout, HistoryFragment())
-            transaction?.addToBackStack("abc");
+            transaction?.addToBackStack("1");
+            transaction?.commit()
+        }
+        if (itemId == R.id.add_btn){
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.fragment_layout, EntireCreditFragment())
+            transaction?.addToBackStack("2");
             transaction?.commit()
         }
     }

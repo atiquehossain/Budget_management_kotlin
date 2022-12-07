@@ -19,6 +19,7 @@ class HomeActivity : AppCompatActivity() {
         tools = Tools(this)
 
         replaceFragment(HomeFragment())
+
         bottomNav = findViewById(R.id.bottomNavigationView)
         bottomNav.setOnItemSelectedListener {
             when(it.itemId){
@@ -26,6 +27,7 @@ class HomeActivity : AppCompatActivity() {
                 R.id.history -> replaceFragment(HistoryFragment())
                 R.id.profile -> replaceFragment(ProfileFragment())
                 R.id.settings -> replaceFragment(SettingsFragment())
+                R.id.add -> replaceFragment(EntireCreditFragment())
                 else ->{
 
                 }
