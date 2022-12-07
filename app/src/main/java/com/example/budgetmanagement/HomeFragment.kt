@@ -1,7 +1,6 @@
 package com.example.budgetmanagement
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -74,6 +73,11 @@ class HomeFragment : Fragment(),  View.OnClickListener{
             transaction?.commit()
         }
     }
+
+  /*  fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }*/
 
 
 }

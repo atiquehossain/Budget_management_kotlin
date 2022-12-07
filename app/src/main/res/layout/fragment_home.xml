@@ -428,7 +428,6 @@
                                     app:iconTint="@color/pss_base_black_tint"
                                     app:backgroundTint="@color/md_grey_200"
                                     android:id="@+id/add_btn"
-
                                     />
 
                                 <TextView
