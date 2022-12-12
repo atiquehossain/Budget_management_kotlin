@@ -73,7 +73,7 @@
                         android:layout_marginRight="5dp"
                         android:background="@color/md_white_1000"
                         android:hint="SEARCH"
-                        android:imeOptions="actionDone"
+                        android:imeOptions="actionSearch"
                         android:inputType="text"
                         android:maxLines="1"
                         android:paddingLeft="10dp"

@@ -35,7 +35,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:background="@color/md_white_1000"
-            android:clickable="true"
             android:elevation="5dp"
             android:foreground="?android:attr/selectableItemBackground"
             android:translationZ="4dp"
@@ -73,11 +72,14 @@
                             android:layout_marginTop="8dp"
                             android:layout_marginEnd="8dp"
                             android:hint="Enter something"
+                            app:startIconDrawable="@drawable/ic_note"
+                            app:endIconMode="clear_text"
                             >
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/edit_text"
                                 android:textSize="14dp"
+                                android:maxLines="3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content" />
 
@@ -96,35 +98,30 @@
                     android:visibility="visible"
                     android:weightSum="2">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="0dp"
-                        android:layout_height="54dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="14dp"
-                        android:layout_marginEnd="16dp"
-                        android:hint="Date"
-                        android:layout_weight="1">
 
-                        <!--this is the actual edit text which takes the input-->
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edit_date"
-                            android:textSize="14dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/date_pick"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="8dp"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"                        app:icon="@drawable/ic_calendar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:text="Add"
+                        android:textColor="@color/black"
+                        android:layout_weight=".3"
+                        />
 
-                    </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_height="54dp"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="14dp"
                         android:layout_marginEnd="16dp"
-
                         android:hint="Credit"
-                        android:layout_weight="1">
+                        android:layout_weight="1.7"
+                        app:startIconDrawable="@drawable/ic_money_24"
+                        app:endIconMode="clear_text">
 
                         <!--this is the actual edit text which takes the input-->
                         <com.google.android.material.textfield.TextInputEditText
