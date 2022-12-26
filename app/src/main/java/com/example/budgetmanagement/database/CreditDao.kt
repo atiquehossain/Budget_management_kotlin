@@ -13,15 +13,15 @@ interface CreditDao {
     @Query("SELECT * FROM CREDIT_TABLE")
     fun getAll(): List<CreditsDB>
 
-    @Query("SELECT * FROM CREDIT_TABLE WHERE creditEntryDate Like :creditDate ")
-    suspend fun findByDate(creditDate: String): CreditsDB
+    @Query("SELECT * FROM CREDIT_TABLE WHERE creditEntryDate LIKE :creditEntryDateTxt ")
+     fun findByDate(creditEntryDateTxt: String): CreditsDB
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertCredit(creditsDB: CreditsDB)
+     fun insert(creditsDB: CreditsDB)
 
     @Delete
-    suspend fun delete(creditsDB: CreditsDB)
+     fun delete(creditsDB: CreditsDB)
 
     @Query("DELETE FROM CREDIT_TABLE")
-    suspend fun deleteAll()
+     fun deleteAll()
 }

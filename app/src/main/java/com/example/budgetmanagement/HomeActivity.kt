@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.budgetmanagement.database.AppDatabase
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -18,7 +19,6 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         //initial
         tools = Tools(this)
-
         replaceFragment(HomeFragment())
 
         bottomNav = findViewById(R.id.bottomNavigationView)
