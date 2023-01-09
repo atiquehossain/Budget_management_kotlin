@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import antonkozyriatskyi.circularprogressindicator.CircularProgressIndicator
 import com.example.budgetmanagement.R
 import com.example.budgetmanagement.database.DebitDB
 import java.lang.String
@@ -26,9 +25,9 @@ data class DebitAdapter(private  val debitDB : ArrayList<DebitDB>): RecyclerView
 
     override fun onBindViewHolder(holder: DebitViewHolder, position: Int) {
         val debitDB : DebitDB = arrDebitDB[position]
-        holder.creditSrc.setText(String.valueOf(debitDB.creditSrc))
-        holder.creditEntryDate.setText(String.valueOf(debitDB.creditEntryDate))
-        holder.creditAmount.setText(String.valueOf(debitDB.creditAmount))
+        holder.creditSrc.text = String.valueOf(debitDB.creditSrc)
+        holder.creditEntryDate.text = String.valueOf(debitDB.creditEntryDate)
+        holder.creditAmount.text = String.valueOf(debitDB.creditAmount)
     }
 
 

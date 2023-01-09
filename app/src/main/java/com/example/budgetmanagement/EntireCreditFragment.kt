@@ -17,7 +17,6 @@ import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.util.*
 
 class EntireCreditFragment : Fragment(), View.OnClickListener {
 
@@ -36,6 +35,8 @@ class EntireCreditFragment : Fragment(), View.OnClickListener {
     private lateinit var  arrDebitDB: ArrayList<DebitDB>
 
 
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fragmentView = inflater.inflate(R.layout.fragment_entire_credit, container, false)
         tools = Tools(context)
@@ -48,19 +49,16 @@ class EntireCreditFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        dataInitialize()
-        //val layoutManager = LinearLayoutManager(context)
+
         recyclerView = view.findViewById(R.id.mRecyclerView)
+        arrDebitDB = java.util.ArrayList<DebitDB>()
         recyclerView.setHasFixedSize(true)
         debitAdapter = DebitAdapter(arrDebitDB)
-        recyclerView.adapter = debitAdapter
-        val adapter = DebitAdapter(arrDebitDB)
-
-        recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = debitAdapter
 
-        // Get a new or existing ViewModel from the ViewModelProvider.
-        //creditDao = ViewModelProvider(this).get(CreditDao::class.java)
+
+
     }
 
     private fun initView() {
@@ -93,13 +91,6 @@ class EntireCreditFragment : Fragment(), View.OnClickListener {
 
     }
 
-
-
-    private  fun dataInitialize(){
-
-        arrDebitDB = arrayListOf<DebitDB>()
-
-    }
 
     companion object {
         var a = 1
