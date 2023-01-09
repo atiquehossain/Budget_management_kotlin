@@ -11,7 +11,7 @@ import java.lang.String
 
 data class DebitAdapter(private  val debitDB : ArrayList<DebitDB>): RecyclerView.Adapter<DebitAdapter.DebitViewHolder>(){
 
-    private val arrDebitDB: ArrayList<DebitDB> = debitDB
+    private var arrDebitDB: ArrayList<DebitDB> = debitDB
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DebitAdapter.DebitViewHolder {
@@ -30,6 +30,11 @@ data class DebitAdapter(private  val debitDB : ArrayList<DebitDB>): RecyclerView
         holder.creditAmount.text = String.valueOf(debitDB.creditAmount)
     }
 
+
+    fun setItems(items: ArrayList<DebitDB>){
+        this.arrDebitDB = items
+        notifyDataSetChanged()
+    }
 
 
     override fun getItemCount(): Int {

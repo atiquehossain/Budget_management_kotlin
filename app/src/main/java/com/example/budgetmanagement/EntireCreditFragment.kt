@@ -30,7 +30,6 @@ class EntireCreditFragment : Fragment(), View.OnClickListener {
 
     //recycler
     private lateinit var  debitAdapter: DebitAdapter
-    private lateinit var  creditDao: CreditDao
     private lateinit var  recyclerView: RecyclerView
     private lateinit var  arrDebitDB: ArrayList<DebitDB>
 
@@ -49,7 +48,6 @@ class EntireCreditFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         recyclerView = view.findViewById(R.id.mRecyclerView)
         arrDebitDB = java.util.ArrayList<DebitDB>()
         recyclerView.setHasFixedSize(true)
@@ -57,7 +55,9 @@ class EntireCreditFragment : Fragment(), View.OnClickListener {
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = debitAdapter
 
-
+        Thread{
+            debitAdapter.setItems(appDb?.creditDao()?.getAll() as ArrayList<DebitDB>)
+        }.start()
 
     }
 

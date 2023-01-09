@@ -605,8 +605,7 @@
                     android:visibility="visible"
                     app:reverseLayout="true"
                     app:stackFromEnd="true"
-                    tools:listitem="@layout/adapter_recycler_style_ad_follow_up"
-                    />
+                    tools:listitem="@layout/adapter_recycler_style_ad_follow_up" />
 
             </RelativeLayout>
 
