@@ -6,7 +6,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [CreditsDB :: class], version = 1)
+@Database(entities = [DebitDB :: class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun creditDao(): CreditDao
@@ -27,7 +27,7 @@ abstract class AppDatabase : RoomDatabase() {
                 val instant = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    "app_database"
+                    "budget_database"
                 ).build()
                 INSTANCE = instant
                 return instant

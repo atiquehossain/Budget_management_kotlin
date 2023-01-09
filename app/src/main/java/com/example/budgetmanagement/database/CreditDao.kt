@@ -11,16 +11,16 @@ import androidx.room.Query
 interface CreditDao {
 
     @Query("SELECT * FROM CREDIT_TABLE")
-    fun getAll(): List<CreditsDB>
+    fun getAll(): List<DebitDB>
 
     @Query("SELECT * FROM CREDIT_TABLE WHERE creditEntryDate LIKE :creditEntryDateTxt ")
-     fun findByDate(creditEntryDateTxt: String): CreditsDB
+     fun findByDate(creditEntryDateTxt: String): DebitDB
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-     fun insert(creditsDB: CreditsDB)
+     fun insert(debitDB: DebitDB)
 
     @Delete
-     fun delete(creditsDB: CreditsDB)
+     fun delete(debitDB: DebitDB)
 
     @Query("DELETE FROM CREDIT_TABLE")
      fun deleteAll()

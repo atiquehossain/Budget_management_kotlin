@@ -75,23 +75,16 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="card_name"
+                                android:text="debit Source : "
                                 android:textSize="16sp"
                                 android:textColor="@color/md_black_1000"/>
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text=" : "
-                                android:textSize="16sp"
-                                android:textColor="@color/md_black_1000"/>
-
-                            <TextView
-                                android:id="@+id/BenName"
+                                android:id="@+id/creditSrc"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="6dp"
-                                android:text="Children Name"
+                                android:text="0"
                                 android:textSize="16sp"
                                 android:textColor="@color/md_blue_700"/>
 
@@ -114,58 +107,21 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="home_no"
+                                android:text="Date : "
                                 android:textSize="14sp"
                                 android:textColor="@color/md_grey_800"/>
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text=" : "
-                                android:textSize="14sp"
-                                android:textColor="@color/md_grey_800"/>
-
-                            <TextView
-                                android:id="@+id/HomeNo"
+                                android:id="@+id/creditEntryDate"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="6dp"
-                                android:text="1993"
+                                android:text="0"
                                 android:textSize="14sp"
                                 android:textColor="@color/md_grey_800"/>
 
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="house_no"
-                                android:textSize="14sp"
-                                android:textColor="@color/md_grey_800"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text=" : "
-                                android:textSize="14sp"
-                                android:textColor="@color/md_grey_800"/>
-
-                            <TextView
-                                android:id="@+id/HouseID"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="6dp"
-                                android:text="1993"
-                                android:textSize="14sp"
-                                android:textColor="@color/md_grey_800"/>
-
-                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -175,10 +131,21 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/Followup"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="adolescentFollowup"
+                            android:text="Amount : "
+                            android:inputType="text"
+                            android:ellipsize="end"
+                            android:scrollHorizontally="true"
+                            android:maxLines="1"
+                            android:textSize="16sp"
+                            android:textColor="@color/md_purple_500"/>
+
+                        <TextView
+                            android:id="@+id/creditAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
                             android:inputType="text"
                             android:ellipsize="end"
                             android:scrollHorizontally="true"

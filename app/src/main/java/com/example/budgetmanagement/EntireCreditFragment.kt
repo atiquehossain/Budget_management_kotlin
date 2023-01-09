@@ -1,35 +1,40 @@
 package com.example.budgetmanagement
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.Toast
-import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.budgetmanagement.database.AppDatabase
-import com.example.budgetmanagement.database.CreditsDB
+import com.example.budgetmanagement.database.CreditDao
+import com.example.budgetmanagement.database.DebitDB
+import com.example.budgetmanagement.recycler.DebitAdapter
 import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.launch
 import java.util.*
-import javax.xml.datatype.DatatypeConstants.MONTHS
 
 class EntireCreditFragment : Fragment(), View.OnClickListener {
 
     private  var appDb : AppDatabase? = null
     private var fragmentView : View? = null
-    var tools: Tools? = null
+    private var tools: Tools? = null
 
-    var tempDate: String? = null
-    var datePickBtn : MaterialButton? = null
-    var creditAddBtn : MaterialButton? = null
+    private var tempDate: String? = null
+    private var datePickBtn : MaterialButton? = null
+    private var creditAddBtn : MaterialButton? = null
+
+    //recycler
+    private lateinit var  debitAdapter: DebitAdapter
+    private lateinit var  creditDao: CreditDao
+    private lateinit var  recyclerView: RecyclerView
+    private lateinit var  arrDebitDB: ArrayList<DebitDB>
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fragmentView = inflater.inflate(R.layout.fragment_entire_credit, container, false)
@@ -39,6 +44,23 @@ class EntireCreditFragment : Fragment(), View.OnClickListener {
         initView()
 
         return fragmentView
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        dataInitialize()
+        //val layoutManager = LinearLayoutManager(context)
+        recyclerView = view.findViewById(R.id.mRecyclerView)
+        recyclerView.setHasFixedSize(true)
+        debitAdapter = DebitAdapter(arrDebitDB)
+        recyclerView.adapter = debitAdapter
+        val adapter = DebitAdapter(arrDebitDB)
+
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(context)
+
+        // Get a new or existing ViewModel from the ViewModelProvider.
+        //creditDao = ViewModelProvider(this).get(CreditDao::class.java)
     }
 
     private fun initView() {
@@ -61,15 +83,35 @@ class EntireCreditFragment : Fragment(), View.OnClickListener {
             val mEditCreditSrc = (fragmentView as View).findViewById<EditText>(R.id.creditSrcId)
            // Toast.makeText(context, mEditText.text.toString(), Toast.LENGTH_SHORT).show()
 
-            val creditDb = CreditsDB(null,mEditCreditSrc.text.toString(),tempDate!!,mEditCredit.text.toString().toInt(),0)
+            val debitDB = DebitDB(null,mEditCreditSrc.text.toString(),tempDate!!,mEditCredit.text.toString().toInt(),0)
             GlobalScope.launch(Dispatchers.IO) {
-                appDb?.creditDao()?.insert(creditDb)
+                appDb?.creditDao()?.insert(debitDB)
             }
             Toast.makeText(context,"Successfully written",Toast.LENGTH_SHORT).show()
 
-
         }
 
+    }
+
+
+
+    private  fun dataInitialize(){
+
+        arrDebitDB = arrayListOf<DebitDB>()
+
+    }
+
+    companion object {
+        var a = 1
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+
+        if (a == 1) {
+
+        }
     }
 
 
