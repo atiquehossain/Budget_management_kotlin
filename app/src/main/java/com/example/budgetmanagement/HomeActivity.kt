@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.budgetmanagement.database.AppDatabase
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -49,7 +48,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun add(view: View) {
-         val fragment = EntireCreditFragment()
+         val fragment = ListofCreditFragment()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_layout, fragment)
         transaction?.addToBackStack("2");

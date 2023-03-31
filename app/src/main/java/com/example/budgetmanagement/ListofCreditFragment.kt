@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.budgetmanagement.database.AppDatabase
-import com.example.budgetmanagement.database.CreditDao
 import com.example.budgetmanagement.database.DebitDB
 import com.example.budgetmanagement.recycler.DebitAdapter
 import com.google.android.material.button.MaterialButton
@@ -18,7 +17,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class EntireCreditFragment : Fragment(), View.OnClickListener {
+class ListofCreditFragment : Fragment(), View.OnClickListener {
 
     private  var appDb : AppDatabase? = null
     private var fragmentView : View? = null
@@ -48,7 +47,14 @@ class EntireCreditFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView = view.findViewById(R.id.mRecyclerView)
+
+        initRecycler()
+
+
+    }
+
+    private  fun initRecycler(){
+        recyclerView = requireView().findViewById(R.id.mRecyclerView)
         arrDebitDB = java.util.ArrayList<DebitDB>()
         recyclerView.setHasFixedSize(true)
         debitAdapter = DebitAdapter(arrDebitDB)
@@ -98,6 +104,7 @@ class EntireCreditFragment : Fragment(), View.OnClickListener {
 
     override fun onResume() {
         super.onResume()
+        initRecycler()
 
 
         if (a == 1) {
